@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 
 class Entite extends Model
 {
@@ -30,5 +31,12 @@ class Entite extends Model
     public function eltes()
     {
         return $this->hasMany(Elte::class);
+    }
+
+    protected static function booted()
+    {
+        static::creating(function ($user) {
+            $user->id = Str::uuid();
+        });
     }
 }

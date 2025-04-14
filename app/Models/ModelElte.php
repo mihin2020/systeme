@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 
 class ModelElte extends Model
 {
@@ -16,4 +17,11 @@ class ModelElte extends Model
     protected $primaryKey = 'id';
 
     protected $fillable = ['name'];
+
+    protected static function booted()
+    {
+        static::creating(function ($user) {
+            $user->id = Str::uuid();
+        });
+    }
 }
