@@ -22,14 +22,18 @@
 
                     <div class="col-md-8">
                         <div class="card card-form">
+                        @if (session()->has('success'))
+                            <div class="alert alert-success" id="success-alert">
+                                {{ session('success') }}
+                            </div>
+
+                            <script>
+                                setTimeout(() => document.getElementById('success-alert')?.remove(), 4000);
+                            </script>
+                            @endif
                             <div class="card-header bg-primary text-white">
                                 <h5 class="card-title">Formulaire d'enregistrement de Tetra</h5>
                             </div>
-                            @if (session()->has('success'))
-                            <div class="alert alert-success">
-                                {{ session('success') }}
-                            </div>
-                            @endif
                             <div class="card-body">
                                 <form action="{{ route('gestionTetra.store') }}" method="POST">
                                     @csrf

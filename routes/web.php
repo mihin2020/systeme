@@ -25,14 +25,24 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::get('/', [AuthController::class, 'create'])->name('auth.create');
-Route::post('/login', [AuthController::class, 'authenticate'])->name('auth.login');
+
+Route::middleware('guest')->group(function () {
+    Route::get('/', [AuthController::class, 'create'])->name('auth.create');
+    Route::post('/login', [AuthController::class, 'authenticate'])->name('auth.login');
+    Route::get('/register', [AuthController::class, 'register'])->name('auth.register');
+    Route::post('/register/store', [AuthController::class, 'store'])->name('auth.store');
+});
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::post('/logout', [AuthController::class, 'logout'])->name('auth.logout');
+
+
+    Route::get('/configuration/user', [ConfigurationController::class, 'userList'])->name('configuration.userList'); //retenu
     Route::get('/configuration', [ConfigurationController::class, 'index'])->name('configuration.index'); //retenu
     Route::delete('/configuration/destroy/{id}', [ConfigurationController::class, 'destroy'])->name('configuration.destroy'); //retenu
+    Route::get('/configuration/desactiver/{id}', [ConfigurationController::class, 'desactiverUser'])->name('configuration.desactiver'); //retenu
+    Route::get('/configuration/activer/{id}', [ConfigurationController::class, 'activerUser'])->name('configuration.activer'); //retenu
     Route::put('/configuration/update/{id}', [ConfigurationController::class, 'update'])->name('configuration.update'); //retenu
     Route::get('/tetra', [TypeTetraController::class, 'index'])->name('type_tetra.index');
     Route::post('/type-tetra', [TypeTetraController::class, 'store'])->name('type-tetra.store');

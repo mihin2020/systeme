@@ -41,7 +41,7 @@ class GestionTetraController extends Controller
         $request->validate([
             'serie' => 'required|string',
             // 'type_tetra_id' => 'required|exists:type_tetras,id',
-            'model_tetra_id' => 'required|exists:model_tetras,id|unique:tetras,model_tetra_id',
+            'model_tetra_id' => 'required|exists:model_tetras,id',
             'entite_id' => 'required|exists:entites,id',
             'numero_appel' => 'required|string',
             'security_group' => 'required|string',

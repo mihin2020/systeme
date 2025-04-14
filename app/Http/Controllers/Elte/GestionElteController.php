@@ -10,7 +10,6 @@ use App\Models\ModelElte;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
 
-use function PHPSTORM_META\type;
 
 class GestionElteController extends Controller
 {
@@ -40,7 +39,7 @@ class GestionElteController extends Controller
     {
         $request->validate([
             'serie' => 'required|string',
-            'model_elte_id' => 'required|exists:model_eltes,id|unique:eltes,model_elte_id',
+            'model_elte_id' => 'required|exists:model_eltes,id',
             'entite_id' => 'required|exists:entites,id',
             'numero_appel' => 'required|string',
         ]);

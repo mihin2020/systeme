@@ -1,11 +1,8 @@
 <?php
 
-namespace Database\Seeders;
-
-use App\Models\User;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
+use App\Models\User;
 
 class UserSeeder extends Seeder
 {
@@ -21,6 +18,7 @@ class UserSeeder extends Seeder
                 'email' => 'super-admin@gmail.com',
                 'role' => 'Super administrateur',
                 'password' => 'password',
+                'statut' => true,
             ],
             [
                 'firstname' => 'Naoua',
@@ -28,18 +26,21 @@ class UserSeeder extends Seeder
                 'email' => 'lassnaoua@gmail.com',
                 'role' => 'Administrateur',
                 'password' => 'password',
+                'statut' => true,
             ],
         ];
-    
+
         foreach ($users as $user) {
-            User::firstOrCreate([
-                'firstname' => $user['firstname'],
-                'lastname' => $user['lastname'],
-                'email' => $user['email'],
-                'role' => $user['role'],
-                'password' => Hash::make($user['password']),
-            ]);
+            User::firstOrCreate(
+                ['email' => $user['email']], // Condition d'unicité
+                [
+                    'firstname' => $user['firstname'],
+                    'lastname' => $user['lastname'],
+                    'role' => $user['role'],
+                    'password' => Hash::make($user['password']),
+                    'statut' => $user['statut'],
+                ]
+            );
         }
     }
-    
 }

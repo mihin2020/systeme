@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Entite;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class ConfigurationController extends Controller
@@ -10,6 +11,30 @@ class ConfigurationController extends Controller
     public function index()
     {
         return view('configuration.index');
+    }
+
+    public function userList()
+    {
+        $users = User::where('role', '!=', 'Super administrateur')->get();
+        return view('configuration.users', compact('users'));
+    }
+
+
+    public function desactiverUser($id)
+    {
+        $user = User::findOrFail($id);
+        $user->statut = false;
+        $user->save();
+
+        return redirect()->back()->with('success', 'Utilisateur désactivé avec succès.');
+    }
+    public function activerUser($id)
+    {
+        $user = User::findOrFail($id);
+        $user->statut = true;
+        $user->save();
+
+        return redirect()->back()->with('success', 'Utilisateur activé avec succès.');
     }
 
 
