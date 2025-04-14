@@ -2,17 +2,20 @@
     <div class="container">
         <div class="row mt-5">
             <div class="col-8">
+                @if (session()->has('success'))
+                <div class="alert alert-success" id="success-alert">
+                    {{ session('success') }}
+                </div>
+
+                <script>
+                    setTimeout(() => document.getElementById('success-alert')?.remove(), 4000);
+                </script>
+                @endif
+
                 <div class="card">
                     <div class="card-body">
 
                         <h4 class="header-title">Liste des entités</h4>
-
-                        @if (session()->has('success'))
-                        <div class="alert alert-success">
-                            {{ session('success') }}
-                        </div>
-                        @endif
-
                         <table class="table table-striped dt-responsive nowrap w-100">
                             <thead>
                                 <tr>

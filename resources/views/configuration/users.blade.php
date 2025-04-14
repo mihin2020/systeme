@@ -21,6 +21,9 @@
                     </div>
                     @endif
                     <div class="col-12">
+                        <a href="{{ route('auth.register') }}">
+                            <button class="btn btn-primary mb-3"  >Ajouter un Utilisateur</button>
+                        </a>
                         <div class="card">
                             
                             <div class="card-body">
@@ -64,6 +67,14 @@
                                                     Activer
                                                 </a>
                                                 @endif
+
+                                                <form action="{{ route('configuration.delete',$user->id) }}">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="btn btn-danger btn-sm mx-2" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cet utilisateur ?')">
+                                                        Supprimer
+                                                    </button>
+                                                </form>
                                             </td>
                                         </tr>
                                         @endforeach

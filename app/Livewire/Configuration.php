@@ -18,7 +18,7 @@ class Configuration extends Component
 
     public function loadEntites()
     {
-        $this->entites = Entite::all();
+        $this->entites = Entite::orderBy('created_at', 'desc')->get();
     }
 
     public function save()

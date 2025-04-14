@@ -38,6 +38,15 @@ class ConfigurationController extends Controller
     }
 
 
+    public function deleteUser($id)
+    {
+        $user = User::findOrFail($id);
+        $user->delete();
+
+        return redirect()->back()->with('success', 'Utilisateur supprimé avec succès.');
+    }
+
+
     public function update(Request $request, $id)
 {
     $request->validate([
