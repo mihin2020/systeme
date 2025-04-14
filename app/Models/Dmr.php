@@ -5,7 +5,6 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Str;
 
 class Dmr extends Model
 {
@@ -38,12 +37,6 @@ class Dmr extends Model
     {
         return $this->belongsTo(ModelDmr::class, 'model_dmr_id');
     }
-
-    protected static function booted()
-{
-    static::creating(function ($user) {
-        $user->id = Str::uuid();
-    });
-}
+    
 
 }

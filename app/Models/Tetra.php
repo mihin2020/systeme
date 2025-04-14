@@ -5,7 +5,6 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Str;
 
 class Tetra extends Model
 {
@@ -42,11 +41,6 @@ class Tetra extends Model
         return $this->belongsTo(ModelTetra::class, 'model_tetra_id');
     }
 
-    protected static function booted()
-    {
-        static::creating(function ($user) {
-            $user->id = Str::uuid();
-        });
-    }
+    
 
 }
