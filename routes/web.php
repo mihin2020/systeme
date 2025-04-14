@@ -25,10 +25,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::get('/register', [AuthController::class, 'register'])->name('auth.register');
+Route::get('/', [AuthController::class, 'register'])->name('auth.register');
 
 Route::middleware('guest')->group(function () {
-    Route::get('/', [AuthController::class, 'create'])->name('auth.create');
+    Route::get('/connexion', [AuthController::class, 'create'])->name('auth.create');
     Route::post('/login', [AuthController::class, 'authenticate'])->name('auth.login');
     Route::post('/register/store', [AuthController::class, 'store'])->name('auth.store');
 });
