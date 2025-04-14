@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 
 class Elte extends Model
 {
@@ -32,5 +33,10 @@ class Elte extends Model
         return $this->belongsTo(ModelElte::class);
     }
 
-    
+    protected static function booted()
+    {
+        static::creating(function ($elte) {
+            $elte->id = Str::uuid();
+        });
+    }
 }
