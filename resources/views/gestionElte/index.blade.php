@@ -41,7 +41,7 @@
                                         <!-- Colonne de gauche -->
                                         <div style="flex: 1; min-width: 300px;">
                                             <div class="mb-3">
-                                                <label for="serie" class="form-label">N° série :</label>
+                                                <label for="serie" class="form-label">IMEI :</label>
                                                 <input type="text" name="serie" class="form-control" required>
                                                 @error('serie') <span class="text-danger">{{ $message }}</span> @enderror
                                             </div>
@@ -192,7 +192,7 @@
                                 <table id="datatable-buttons" class="table table-striped dt-responsive nowrap w-100">
                                     <thead>
                                         <tr>
-                                            <th>N°</th>
+                                            <th>IMEI</th>
                                             <th>Numéro de série</th>
                                             <th>Numéro appel</th>
                                             <th>Modèle de radio</th>

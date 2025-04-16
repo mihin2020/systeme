@@ -36,7 +36,7 @@
                                                     <!-- Colonne 1 -->
                                                     <div class="col-md-6">
                                                         <div class="mb-3">
-                                                            <label for="">Numéro de série</label>
+                                                            <label for="">IMEI</label>
                                                             <input type="text" name="serie" class="form-control" value="{{ $elte->serie }}" required>
                                                         </div>
                                                         <div class="mb-3">
