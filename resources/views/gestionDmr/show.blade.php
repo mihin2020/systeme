@@ -33,6 +33,11 @@
                                             <th>Numéro de série</th>
                                             <td>{{ $dmr->serie }}</td>
                                         </tr>
+
+                                        <tr>
+                                            <th>Numéro IP</th>
+                                            <td>{{ $dmr->no_ip }}</td>
+                                        </tr>
                                         <tr>
                                             <th>Type de radio</th>
                                             <td>{{ $dmr->typeDmr->name ?? 'Non défini' }}</td>

@@ -41,6 +41,7 @@ class GestionDmrController extends Controller
     {
         $request->validate([
             'serie' => 'required|string',
+            'no_ip' => 'required|string',
             'type_dmr_id' => 'required|exists:type_dmrs,id',
             'model_dmr_id' => 'required|exists:model_dmrs,id',
             'entite_id' => 'required|exists:entites,id',
@@ -65,6 +66,7 @@ class GestionDmrController extends Controller
     {
         $validatedData = $request->validate([
             'serie' => 'required|string',
+            'no_ip' => 'required|string',
             'type_dmr_id' => 'required|exists:type_dmrs,id',
             'model_dmr_id' => 'required|exists:model_dmrs,id',
             'entite_id' => 'required|exists:entites,id',

@@ -1,6 +1,15 @@
 @extends('layouts.app')
+
 @section('content')
-<div>
+<div class="layout-wrapper">
+
+    <div class="page-content">
+
+        @include('components.topbar')
+
+        <div class="px-3">
+            <!-- Start Content-->
+        
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-12 col-md-8 col-lg-6">
@@ -57,6 +66,8 @@
     </div>
 </div>
         
+    </div>
+    </div>
     </div>
 @endsection
 

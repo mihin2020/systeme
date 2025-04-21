@@ -49,7 +49,7 @@
                     <a href="{{ route('elte.index') }}" class="col-xl-4 text-decoration-none">
                         <div class="card border-info border-2 rounded-4 mb-4 hover-effect">
                             <div class="card-body text-center bg-gradient-info bg-opacity-10">
-                                <h4 class="card-title text-info">E-lte</h4>
+                                <h4 class="card-title text-info">eLTE</h4>
                                 <div class="display-4 fw-bold text-info">{{ $nombreElte }}</div>
                             </div>
                         </div>

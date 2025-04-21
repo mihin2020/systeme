@@ -19,6 +19,7 @@ class Dmr extends Model
 
     protected $fillable = [
         'serie',
+        'no_ip',
         'type_dmr_id',
         'entite_id',
         'model_dmr_id',

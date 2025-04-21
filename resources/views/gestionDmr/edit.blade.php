@@ -37,6 +37,10 @@
                                                                 <input type="text" name="serie" class="form-control" value="{{ $dmr->serie }}" required>
                                                             </div>
                                                             <div class="mb-3">
+                                                                <label for="">Numéro IP</label>
+                                                                <input type="text" name="no_ip" class="form-control" value="{{ $dmr->no_ip }}" required>
+                                                            </div>
+                                                            <div class="mb-3">
                                                                 <label for="">Type de radio</label>
                                                                 <select name="type_dmr_id" class="form-control" required>
                                                                     @foreach($types as $type)

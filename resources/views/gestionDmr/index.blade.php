@@ -48,6 +48,13 @@
                                                 @error('serie') <span class="text-danger">{{ $message }}</span> @enderror
                                             </div>
 
+
+                                            <div class="mb-3">
+                                                <label for="no_ip" class="form-label">N° IP :</label>
+                                                <input type="text" name="no_ip" class="form-control" required>
+                                                @error('no_ip') <span class="text-danger">{{ $message }}</span> @enderror
+                                            </div>
+
                                             <div class="mb-3">
                                                 <label for="modele" class="form-label">Modèle de radio :</label>
                                                 <select name="model_dmr_id" class="form-control" required>
@@ -351,6 +358,7 @@
                                         <tr>
                                             <th>N°</th>
                                             <th>Numéro de série</th>
+                                            <th>Numéro Ip</th>
                                             <th>Modèle de radio</th>
                                             <th>Type de radio</th>
                                             <th>Entité doté</th>
@@ -362,6 +370,7 @@
                                         <tr>
                                             <td>{{ $index + 1 }}</td>
                                             <td>{{ $dmr->serie }}</td>
+                                            <td>{{ $dmr->no_ip }}</td>
                                             <td>{{ $dmr->modelDmr->name ?? 'Non défini' }}</td>
                                             <td>{{ $dmr->typeDmr->name ?? 'Non défini' }}</td>
                                             <td>{{ $dmr->entite->name ?? 'Non défini' }}</td>

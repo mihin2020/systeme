@@ -62,6 +62,12 @@
                                                                     </div>
 
                                                                     <div class="mb-3">
+                                                                        <label for="">Numéro IP</label>
+                                                                        <input type="text" name="no_ip" class="form-control" placeholder="Numéro Ip" required>
+                                                                        @error('no_ip') <span class="text-danger">{{ $message }}</span> @enderror
+                                                                    </div>
+
+                                                                    <div class="mb-3">
                                                                         <label for="">Type de Dmr</label>
                                                                         <select name="type_dmr_id" class="form-control" required>
                                                                             <option value="">Sélectionner le type de Dmr</option>
